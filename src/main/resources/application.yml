@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: coupon-service
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/coupon}
+    username: ${DATASOURCE_USERNAME:coupon}
+    password: ${DATASOURCE_PASSWORD:coupon}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+coupon:
+  geo:
+    api-url: ${GEO_API_URL:http://ip-api.com/json}
+    bypass-private-ips: ${GEO_BYPASS_PRIVATE_IPS:true}
+    default-country-for-private-ips: ${GEO_DEFAULT_COUNTRY:PL}
+    timeout: ${GEO_TIMEOUT:5s}

@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+build/
+
+# Gradle wrapper jar is intentionally committed so `./gradlew` works after clone.
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse / VS Code
+.classpath
+.project
+.settings/
+.vscode/
+bin/
+
+# AI tooling
+.qodo/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
